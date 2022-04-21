@@ -1,0 +1,58 @@
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>여름 반팔티를 찾아줄께!</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <select class="form-select" name="nc">
+            <option selected>색상</option>
+            <option value="1.0">빨간</option>
+            <option value="2.0">흰색</option>
+            <option value="3.0">검은색</option>
+            <option value="4.0">파란색</option>
+            <option value="5.0">회색</option>
+            <option value="6.0">노란색</option>
+         </select>
+
+         <select class="form-select" name="P">
+             <option selected>가격</option>
+             <option value="1">2만원 이하</option>
+             <option value='2'>2만원 ~ 3만원</option>
+             <option value="3">3만원 ~ 4만원</option>
+             <option value='4'>4만원 ~ 5만원</option>
+             <option value='5'>5만원 이상</option>
+         </select>
+
+         <select class="form-select" name="Pr">
+             <option selected>인기지수</option>
+             <option value="1">0 ~ 300 개</option>
+             <option value="2">300 ~ 700 개</option>
+             <option value="3">700 ~ 1000 개</option>
+             <option value="4">1000 ~ 2000 개</option>
+             <option value="5">2000 개 이상</option>
+            </select>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">선택</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
